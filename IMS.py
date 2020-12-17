@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 #%%
 #No optimization parameter (i.e) m is constant
-m=10
+m=5
+#y_filt=y_filt[1000:5000]
 #split signal into segments
 nseg=np.int16(np.floor(len(y_filt)/m))#np. of segments
 seg=0 #segment counter
@@ -23,7 +24,8 @@ ab=np.zeros([nseg,1])
 def slope(y_filt,interval):
     start=linez[0,0]
     stop=linez[0,1]
-    out=np.sum(np.diff(y_filt[start:stop]))/(stop-start)
+    #out=np.sum(np.diff(y_filt[start:stop]))/(stop-start)
+    out=np.median(np.gradient(y_filt[start:stop]))
     return out
 
 ab[0]=slope(y_filt,linez[0,:])
