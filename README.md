@@ -1,0 +1,2 @@
+# IMS
+Incremental Merge Segmentation
